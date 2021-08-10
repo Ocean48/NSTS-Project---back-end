@@ -24,7 +24,11 @@
             background-color: #e0f3ff;
         }
 
-        input{
+        form{
+   			vertical-align: middle;
+        }
+
+        input[type = "submit"]{
           background-color: #4CAF50;
           border: none;
           color: white;
@@ -33,6 +37,19 @@
           margin: 4px 2px;
           cursor: pointer;
           width : 100px;
+        }
+
+        input[type = "text"]{
+        	color: #fabebe;
+        	border-radius: 18px;
+	        background-color: #7a7391;
+	        border: none;
+	        color: white;
+	        padding: 16px 32px;
+	        text-decoration: none;
+	        margin: 4px 2px;
+	        cursor: pointer;
+	        width : 100px;
         }
     </style>
 </head>
@@ -55,52 +72,20 @@
     </header>
 
 
-    <h1 align = "center">User Information</h1>
-
-
     <?php
-        $conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
-                        
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+    	$e = $_POST['e'];
+    
 
-        }
+	    echo '<form action = "ea.php" method="POST">
+	    	<input type="hidden" name="old_email" value = "'.$e.'">
+	    	New Name: <br>
+	    	<input type="text" name="new_email"><br>
+	    	New Password: <br>
+	    	<input type="text" name="password"><br>
+	    	<input type="submit" value = "Confirm">
+	    </form>'
 
-        $sql = "SELECT * FROM `account`";
-
-        $result = $conn->query($sql);
-    ?>
-
-   
-    <table style="width:80%">
-        <tr>
-            <th width="34%">User Email</th>
-            <th width="40%">Password</th>
-            <th></th>
-        </tr>
-        
-
-        <?php
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<th>".$row['email']."</th>";
-                echo "<th>".$row['password']."</th>";
-                echo '<th>
-                    <form action = "edit_account.php" method="POST">
-                    <input type = "hidden" name = "e" value = "'.$row['email'] .'">
-                    <input type = "submit" value = "edit">
-                    </form>
-                    <form action = "delete_account.php" method="POST">
-                    <input type = "hidden" name = "e" value = "'.$row['email'] .'">
-                    <input type = "submit" value = "delete">
-                    </form>
-                </th>';
-                echo "</tr>";
-            }
-        ?>
-    </table>
-
-
+	?>
     <br><br><br><br><br><br>
     
         
@@ -114,5 +99,4 @@
         </div>
     </footer>
 </body>
-
 </html>
