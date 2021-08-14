@@ -34,6 +34,21 @@
           cursor: pointer;
           width : 100px;
         }
+
+        .bu{
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          text-decoration: none;
+          margin: 50px 10.5%;
+          cursor: pointer;
+          width : 200px;
+          height: 60px;
+          font-size: 20px;
+          float: right;
+          text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -53,7 +68,11 @@
     </header>
 
 
-    <h1 align = "center">User Information</h1>
+    <h1 align = "center">Event Information</h1>
+
+    <form action="add_product.html">
+        <input class="bu" type="submit" value="Add Product">
+    </form>
 
 
     <?php
@@ -64,16 +83,16 @@
 
         }
 
-        $sql = "SELECT * FROM `account`";
+        $sql = "SELECT * FROM `products`";
 
         $result = $conn->query($sql);
     ?>
 
    
-    <table style="width:80%">
+    <table style="width:80%; clear: both;">
         <tr>
-            <th width="34%">User Email</th>
-            <th width="40%">Password</th>
+            <th width="50%">Product Name</th>
+            <th width="30%">Product price</th>
             <th></th>
         </tr>
         
@@ -81,15 +100,11 @@
         <?php
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<th>".$row['email']."</th>";
-                echo "<th>".$row['password']."</th>";
+                echo "<th>".$row['name']."</th>";
+                echo "<th>$".$row['price']."</th>";
                 echo '<th>
-                    <form action = "edit_account.php" method="POST">
-                    <input type = "hidden" name = "e" value = "'.$row['email'] .'">
-                    <input type = "submit" value = "edit">
-                    </form>
-                    <form action = "delete_account.php" method="POST">
-                    <input type = "hidden" name = "e" value = "'.$row['email'] .'">
+                    <form action = "delete_product.php" method="POST">
+                    <input type = "hidden" name = "name" value = "'.$row['name'] .'">
                     <input type = "submit" value = "delete">
                     </form>
                 </th>';

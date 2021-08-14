@@ -10,11 +10,14 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "UPDATE `account` SET ";
+    $sql = "UPDATE `account` SET "; 
+    $sql2 = "UPDATE `cart` SET `email` = '$ne' WHERE email = '$oe'"; 
 
     if(strlen($ne) > 0){
-    	$sql = $sql."`email` = '".$ne."'";
+        $sql = $sql."`email` = '".$ne."'";
+        $conn->query($sql2);
     }
+
 
     if(strlen($np) > 0){
     	if(strlen($ne) > 0){

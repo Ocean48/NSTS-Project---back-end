@@ -25,7 +25,7 @@
         }
 
         form{
-   			margin-left: 40%;
+            margin-left: 40%;
         }
 
         input[type = "submit"]{
@@ -43,16 +43,17 @@
         }
 
         input[type = "text"]{
-        	color: #fabebe;
-        	border-radius: 18px;
-	        background-color: #7a7391;
-	        border: none;
-	        color: white;
-	        padding: 16px 32px;
-	        text-decoration: none;
-	        margin: 4px 2px;
-	        cursor: pointer;
-	        width : 200px;
+            color: #fabebe;
+            border-radius: 18px;
+            background-color: #7a7391;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            width : 200px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -74,21 +75,30 @@
         </div>
     </header>
     <br>
-
-    <?php
-    	$e = $_POST['e'];
     
+    <form action = "ae.php" method="POST">
+        Title: <br>
+        <input type="text" name="t"><br>
+        Short info: <br>
+        <input type="text" name="si"><br>
+        Upload Date: <br>
+        <input type="text" name="ud"><br>
+        image1: <br>
+        <input type="text" name="i1"><br>
+        image2: <br>
+        <input type="text" name="i2"><br>
+        image3: <br>
+        <input type="text" name="i3"><br>
+        image4: <br>
+        <input type="text" name="i4"><br>
+        image5: <br>
+        <input type="text" name="i5"><br>
+        image6: <br>
+        <input type="text" name="i6"><br>
+        <input type="submit" value = "Confirm">
+    </form>
 
-	    echo '<form action = "ea.php" method="POST">
-	    	<input type="hidden" name="old_email" value = "'.$e.'">
-	    	New Name: <br>
-	    	<input type="text" name="new_email"><br><br><br>
-	    	New Password: <br>
-	    	<input type="text" name="password"><br><br><br>
-	    	<input type="submit" value = "Confirm">
-	    </form>'
-
-	?>
+    
     <br><br><br><br><br><br><br><br>
     
         

@@ -24,15 +24,34 @@
             background-color: #e0f3ff;
         }
 
-        input{
+        input[type = "submit"]{
           background-color: #4CAF50;
           border: none;
           color: white;
-          padding: 16px 32px;
+          width: 130px;
+          height: 50px;
           text-decoration: none;
           margin: 4px 2px;
           cursor: pointer;
           width : 100px;
+        }
+        input[type = "text"]{
+          border-color: black;
+          color: black;
+          height: 50px;
+          font-size: 18px;
+          text-decoration: none;
+          margin: 50px 56px;
+          cursor: pointer;
+        }
+        input[type = "email"]{
+          border-color: black;
+          color: black;
+          height: 50px;
+          font-size: 18px;
+          text-decoration: none;
+          margin: 50px 52px;
+          cursor: pointer;
         }
     </style>
 </head>
@@ -55,8 +74,15 @@
 
     <h1 align = "center">User Information</h1>
 
+    <form action = "add_cart.php" method="POST" style="margin-left: 10%;">
+        <label>E-mail: </label>
+        <input type = "email" name = "email">
+        <label>Product: </label>
+        <input type = "text" name = "product">
+        <input type = "submit" value = "Add Order" style="margin-left: 5.5%;">
+    </form>
 
-    <?php
+   <?php
         $conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
                         
         if ($conn->connect_error) {
@@ -64,16 +90,17 @@
 
         }
 
-        $sql = "SELECT * FROM `account`";
+        $sql = "SELECT * FROM `cart`";
 
         $result = $conn->query($sql);
     ?>
 
-   
+
     <table style="width:80%">
         <tr>
             <th width="34%">User Email</th>
-            <th width="40%">Password</th>
+            <th width="40%">Product</th>
+            <th width="40%">price</th>
             <th></th>
         </tr>
         
@@ -82,14 +109,12 @@
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<th>".$row['email']."</th>";
-                echo "<th>".$row['password']."</th>";
+                echo "<th>".$row['product']."</th>";
+                echo "<th>".$row['price']."</th>";
                 echo '<th>
-                    <form action = "edit_account.php" method="POST">
+                    <form action = "delete_cart.php" method="POST">
                     <input type = "hidden" name = "e" value = "'.$row['email'] .'">
-                    <input type = "submit" value = "edit">
-                    </form>
-                    <form action = "delete_account.php" method="POST">
-                    <input type = "hidden" name = "e" value = "'.$row['email'] .'">
+                    <input type = "hidden" name = "p" value = "'.$row['product'] .'">
                     <input type = "submit" value = "delete">
                     </form>
                 </th>';

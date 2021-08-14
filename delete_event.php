@@ -1,6 +1,6 @@
 <?php
 	
-	$e = $_POST['e'];
+	$t = $_POST['t'];
 
 	$conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
                         
@@ -9,8 +9,8 @@
 
     }
 
-    $sql = "DELETE FROM `account` WHERE email = '$e'";
+    $sql = "DELETE FROM `event` WHERE title = '$t'";
 
     $conn->query($sql);
-    header('Location: http://localhost/nozuonodie_back/account.php');
+    header('Location: http://localhost/nozuonodie_back/event.php');
 ?>
