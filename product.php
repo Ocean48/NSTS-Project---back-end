@@ -60,7 +60,7 @@
                 <ul>
                     <li><a href="account.php">Account</a></li>
                     <li><a href="cart.php">Cart</a></li>
-                    <li><a href="products.php">Products</a></li>
+                    <li><a href="product.php">Products</a></li>
                     <li><a href="event.php">Event</a></li>
                 </ul>
             </nav>
