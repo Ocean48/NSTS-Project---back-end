@@ -68,7 +68,7 @@
     </header>
 
 
-    <h1 align = "center">Event Information</h1>
+    <h1 align = "center">Product Information</h1>
 
     <form action="add_product.html">
         <input class="bu" type="submit" value="Add Product">

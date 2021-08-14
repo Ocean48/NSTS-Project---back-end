@@ -63,12 +63,10 @@
         
             <nav>
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="products.php">Products</a></li>
-                    <li><a href="news.php">News</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="sign_in.php">Account</a></li>
+                    <li><a href="account.php">Account</a></li>
+                    <li><a href="cart.php">Cart</a></li>
+                    <li><a href="product.php">Products</a></li>
+                    <li><a href="event.php">Event</a></li>
                 </ul>
             </nav>
         </div>

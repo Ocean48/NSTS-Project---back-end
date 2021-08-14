@@ -72,7 +72,7 @@
     </header>
 
 
-    <h1 align = "center">User Information</h1>
+    <h1 align = "center">Order Information</h1>
 
     <form action = "add_cart.php" method="POST" style="margin-left: 10%;">
         <label>E-mail: </label>
