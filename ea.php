@@ -1,4 +1,12 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['loggedin'])) {
+        echo '<script>alert("You must sign in as an admin!")</script>';
+        header("refresh:0.1; url=sign_in.php");
+        exit();
+    }
+?>
+<?php
 	$oe = $_POST['old_email'];
 	$ne = $_POST['new_email'];
 	$np = $_POST['password'];

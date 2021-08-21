@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['loggedin'])) {
+        echo '<script>alert("You must sign in as an admin!")</script>';
+        header("refresh:0.1; url=sign_in.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
