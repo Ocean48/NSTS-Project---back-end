@@ -11,6 +11,7 @@
 	
 	$pn = $_POST['pn'];
     $p = $_POST['p'];
+    $kw = $_POST['kw'];
     $i = $_POST['i'];
     $i1 = $_POST['i1'];
     $i2 = $_POST['i2'];
@@ -26,7 +27,7 @@
 
     }
 
-    $sql = "INSERT INTO `products`(`name`, `price`, `image_url`, `image_url2`, `image_url3`, `image_url4`, `image_url5`, `image_url6`, `image_url7`) VALUES ('$pn',$p,'$i','$i1','$i2','$i3','$i4','$i5','$i6')";
+    $sql = "INSERT INTO `products`(`name`, `price`, `key_word`, `image_url`, `image_url2`, `image_url3`, `image_url4`, `image_url5`, `image_url6`, `image_url7`) VALUES ('$pn','$p','$kw','$i','$i1','$i2','$i3','$i4','$i5','$i6')";
     
     $conn->query($sql);
     header('Location: http://localhost/nozuonodie_back/product.php');

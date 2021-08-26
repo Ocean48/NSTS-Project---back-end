@@ -99,14 +99,17 @@
     <table style="width:80%; clear: both;">
         <tr>
             <th width="80%">Event Title</th>
+            <th width="80%">Key Word</th>
             <th></th>
         </tr>
         
 
         <?php
+
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<th>".$row['title']."</th>";
+                echo "<th>".$row['key_word']."</th>";
                 echo '<th>
                     <form action = "delete_event.php" method="POST">
                     <input type = "hidden" name = "t" value = "'.$row['title'] .'">

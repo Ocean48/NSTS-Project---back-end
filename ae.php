@@ -11,6 +11,7 @@
 	
 	$t = $_POST['t'];
     $si = $_POST['si'];
+    $kw = $_POST['kw'];
     $ud = $_POST['ud'];
     $i1 = $_POST['i1'];
     $i2 = $_POST['i2'];
@@ -26,7 +27,7 @@
 
     }
 
-    $sql = "INSERT INTO `event`(`title`, `short_info`, `upload_date`, `image_url`, `image_url2`, `image_url3`, `image_url4`, `image_url5`, `image_url6`) VALUES ('$t','$si','$ud','$i1','$i2','$i3','$i4','$i5','$i6')";
+    $sql = "INSERT INTO `event`(`title`, `short_info`, `key_word`, `upload_date`, `image_url`, `image_url2`, `image_url3`, `image_url4`, `image_url5`, `image_url6`) VALUES ('$t','$si','$kw','$ud','$i1','$i2','$i3','$i4','$i5','$i6')";
     
     $conn->query($sql);
     header('Location: http://localhost/nozuonodie_back/event.php');

@@ -101,6 +101,7 @@
         <tr>
             <th width="50%">Product Name</th>
             <th width="30%">Product price</th>
+            <th width="30%">Key Word</th>
             <th></th>
         </tr>
         
@@ -110,6 +111,7 @@
                 echo "<tr>";
                 echo "<th>".$row['name']."</th>";
                 echo "<th>$".$row['price']."</th>";
+                echo "<th>".$row['key_word']."</th>";
                 echo '<th>
                     <form action = "delete_product.php" method="POST">
                     <input type = "hidden" name = "name" value = "'.$row['name'] .'">
