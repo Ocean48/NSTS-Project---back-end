@@ -62,7 +62,7 @@
             </nav>
 
             <form action = "sign_out.php">
-                <input style="margin-left: 50%; margin-top: 5%; font-size: large; font-weight: bold; background-color: #e4eeff;  border: none;  color: #000000;  height: 42px;  cursor: pointer;  width : 120px; text-align: center;" type="submit" value="Sign out">
+                <input style="border-radius: 0; margin-left: 50%; margin-top: 5%; font-size: large; font-weight: bold; background-color: #e4eeff;  border: none;  color: #000000;  height: 42px;  cursor: pointer;  width : 120px; text-align: center;" type="submit" value="Sign out">
             </form>
         </div>
     </header>
