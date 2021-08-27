@@ -26,22 +26,24 @@
         footer{
             position: relative;
             width: 100%;
-            background-color: dimgray;
+            background-color: rgb(172, 172, 172);
         }
 
         body{
+            font-size: 18px;
             background-color: #e0f3ff;
         }
 
-        input{
-          background-color: #4CAF50;
-          border: none;
-          color: white;
-          padding: 16px 32px;
-          text-decoration: none;
-          margin: 4px 2px;
-          cursor: pointer;
-          width : 100px;
+        input[type = "submit"]{
+            font-size: large;
+            background-color: #4CAF50;
+            border: none;
+            color: #ffffff;
+            height: 42px;
+            margin: 4px 2px;
+            cursor: pointer;
+            width : 140px;
+            text-align: center;
         }
     </style>
 </head>
@@ -95,11 +97,11 @@
                 echo '<th>
                     <form action = "edit_account.php" method="POST">
                     <input type = "hidden" name = "e" value = "'.$row['email'] .'">
-                    <input type = "submit" value = "edit">
+                    <input type = "submit" value = "Edit">
                     </form>
                     <form action = "delete_account.php" method="POST">
                     <input type = "hidden" name = "e" value = "'.$row['email'] .'">
-                    <input type = "submit" value = "delete">
+                    <input type = "submit" value = "Delete">
                     </form>
                 </th>';
                 echo "</tr>";
@@ -116,9 +118,8 @@
     <br>
 
     <footer>
-        <div class="footer_logo">
-            <img src="images/logo.png" alt="logo">
-        </div>
+        <img src="images/logo.png" alt="logo">
+        <p class="copyright">copyright &copy; <script>document.write(new date().getfullyear())</script> all rights reserved</p>
     </footer>
 </body>
 

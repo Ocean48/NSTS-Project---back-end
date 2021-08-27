@@ -25,7 +25,7 @@
         footer{
             position: relative;
             width: 100%;
-            background-color: dimgray;
+            background-color: rgb(172, 172, 172);
         }
 
         body{
@@ -33,34 +33,32 @@
         }
 
         form{
+            font-size: x-large;
+            margin-top: 3%;
    			margin-left: 40%;
         }
 
         input[type = "submit"]{
-          background-color: #4CAF50;
-          border: none;
-          color: white;
-          height: 36px;
-          text-decoration: none;
-          margin: 4px 2px;
-          cursor: pointer;
-          width : 100px;
-          border-radius: 12px;
-          text-align: center;
-        
+            font-size: large;
+            background-color: #4CAF50;
+            border: none;
+            color: #ffffff;
+            height: 42px;
+            margin: 4px 2px;
+            cursor: pointer;
+            width : 140px;
+            border-radius: 8px;
+            text-align: center;
         }
 
         input[type = "text"]{
-        	color: #fabebe;
-        	border-radius: 18px;
-	        background-color: #7a7391;
-	        border: none;
-	        color: white;
-	        padding: 16px 32px;
-	        text-decoration: none;
-	        margin: 4px 2px;
-	        cursor: pointer;
-	        width : 200px;
+        	background-color: #e4eeff;
+            border: 1px solid #000000;
+            color: white;
+            padding: 14px 30px;
+            margin: 4px 2px;
+            cursor: pointer;
+            width : 200px;
         }
     </style>
 </head>
@@ -103,9 +101,8 @@
     <br>
 
     <footer>
-        <div class="footer_logo">
-            <img src="images/logo.png" alt="logo">
-        </div>
+        <img src="images/logo.png" alt="logo">
+        <p class="copyright">copyright &copy; <script>document.write(new date().getfullyear())</script> all rights reserved</p>
     </footer>
 </body>
 </html>

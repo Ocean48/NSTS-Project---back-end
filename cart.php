@@ -25,41 +25,46 @@
         footer{
             position: relative;
             width: 100%;
-            background-color: dimgray;
+            background-color: rgb(172, 172, 172);
         }
 
         body{
+            font-size: 18px;
             background-color: #e0f3ff;
         }
 
         input[type = "submit"]{
-          background-color: #4CAF50;
-          border: none;
-          color: white;
-          width: 130px;
-          height: 50px;
-          text-decoration: none;
-          margin: 4px 2px;
-          cursor: pointer;
-          width : 100px;
+            font-size: large;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            width: 120px;
+            height: 40px;
+            text-decoration: none;
+            margin: 10px 8px;
+            cursor: pointer;
         }
         input[type = "text"]{
-          border-color: black;
-          color: black;
-          height: 50px;
-          font-size: 18px;
-          text-decoration: none;
-          margin: 50px 56px;
-          cursor: pointer;
+            border-color: black;
+            border: 1px solid #000000;
+            background-color: #e4eeff;
+            color: black;
+            height: 40px;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 30px 56px;
+            cursor: pointer;
         }
         input[type = "email"]{
-          border-color: black;
-          color: black;
-          height: 50px;
-          font-size: 18px;
-          text-decoration: none;
-          margin: 50px 52px;
-          cursor: pointer;
+            border-color: black;
+            border: 1px solid #000000;
+            background-color: #e4eeff;
+            color: black;
+            height: 40px;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 30px 52px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -118,12 +123,12 @@
                 echo "<tr>";
                 echo "<th>".$row['email']."</th>";
                 echo "<th>".$row['product']."</th>";
-                echo "<th>".$row['price']."</th>";
+                echo "<th>$".$row['price']."</th>";
                 echo '<th>
                     <form action = "delete_cart.php" method="POST">
                     <input type = "hidden" name = "e" value = "'.$row['email'] .'">
                     <input type = "hidden" name = "p" value = "'.$row['product'] .'">
-                    <input type = "submit" value = "delete">
+                    <input type = "submit" value = "Delete">
                     </form>
                 </th>';
                 echo "</tr>";
@@ -140,9 +145,8 @@
     <br>
 
     <footer>
-        <div class="footer_logo">
-            <img src="images/logo.png" alt="logo">
-        </div>
+        <img src="images/logo.png" alt="logo">
+        <p class="copyright">copyright &copy; <script>document.write(new date().getfullyear())</script> all rights reserved</p>
     </footer>
 </body>
 

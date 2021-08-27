@@ -25,38 +25,25 @@
         footer{
             position: relative;
             width: 100%;
-            background-color: dimgray;
+            background-color: rgb(172, 172, 172);
         }
 
         body{
+            font-size: 18px;
             background-color: #e0f3ff;
         }
 
-        input{
-          background-color: #4CAF50;
-          border: none;
-          color: white;
-          padding: 16px 32px;
-          text-decoration: none;
-          margin: 4px 2px;
-          cursor: pointer;
-          width : 100px;
+        input[type = "submit"]{
+            font-size: large;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            width: 120px;
+            height: 50px;
+            text-decoration: none;
+            margin: 10px 8px;
+            cursor: pointer;
         }
-
-        .bu{
-          background-color: #4CAF50;
-          border: none;
-          color: white;
-          text-decoration: none;
-          margin: 50px 10.5%;
-          cursor: pointer;
-          width : 200px;
-          height: 60px;
-          font-size: 20px;
-          float: right;
-          text-align: center;
-        }
-
     </style>
 </head>
 <body>
@@ -79,7 +66,7 @@
     <h1 align = "center">Product Information</h1>
 
     <form action="add_product.html">
-        <input class="bu" type="submit" value="Add Product">
+        <input style="float: right; margin-right: 20%; margin-bottom: 3%; width: 140px;" type="submit" value="Add Product">
     </form>
 
 
@@ -115,7 +102,7 @@
                 echo '<th>
                     <form action = "delete_product.php" method="POST">
                     <input type = "hidden" name = "name" value = "'.$row['name'] .'">
-                    <input type = "submit" value = "delete">
+                    <input type = "submit" value = "Delete">
                     </form>
                 </th>';
                 echo "</tr>";
@@ -132,9 +119,8 @@
     <br>
 
     <footer>
-        <div class="footer_logo">
-            <img src="images/logo.png" alt="logo">
-        </div>
+        <img src="images/logo.png" alt="logo">
+        <p class="copyright">copyright &copy; <script>document.write(new date().getfullyear())</script> all rights reserved</p>
     </footer>
 </body>
 
