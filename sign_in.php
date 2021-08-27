@@ -6,18 +6,42 @@
         exit();
     }
     else {
-        if(isset($_POST["email_s"])){
+        if(isset($_POST["name"])){
             $go = TRUE;
-            $email = $_POST["email_s"];
+            $name = $_POST["name"];
             $password = $_POST["password_s"];
             
-            if (($email == "admin") && ($password == "123456")){
-                $_SESSION['loggedin'] = true;
-                header("refresh:0.1; url=account.php");
+            $conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
+                
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+
             }
-            else {
-                echo '<script>alert("wrong email or password")</script>';                
+            $sql = "SELECT `user_name`, `password` FROM `admin`";
+
+            $result = $conn->query($sql);
+            
+            $run = False;
+            while($row = $result->fetch_assoc()) {
+                if ($name == $row['user_name']) {
+                    if ($password == $row['password']) {
+                        $_SESSION['loggedin'] = true;
+                        header("refresh:0.1; url=account.php");
+                    }
+                    else {
+                        $run = TRUE;
+                        break;
+                    }
+                }
+                else { 
+                    $run = TRUE;
+                }
             }
+            
+            if ($run == True) {
+                echo '<script>alert("wrong user name or password")</script>';                
+            }
+            $conn->close();
         }
     }
 ?>
@@ -58,7 +82,7 @@
         <form method="POST">
             <label for="user_name">User name</label>
             <br>
-            <input name="email_s" type="text" style="margin-top: 5%; margin-bottom: 8%; padding: 5%; width: 180px; font-style: italic;" placeholder="User name" required>
+            <input name="name" type="text" style="margin-top: 5%; margin-bottom: 8%; padding: 5%; width: 180px; font-style: italic;" placeholder="User name" required>
             <br>
             <label for="password">Password</label>
             <br>

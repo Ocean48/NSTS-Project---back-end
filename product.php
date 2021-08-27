@@ -87,13 +87,13 @@
     <table style="width:80%; clear: both;">
         <tr>
             <th width="50%">Product Name</th>
-            <th width="30%">Product price</th>
-            <th width="30%">Key Word</th>
+            <th width="20%">Product price</th>
+            <th width="25%">Key Word</th>
             <th></th>
         </tr>
         
 
-        <?php
+        <?php   
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<th>".$row['name']."</th>";

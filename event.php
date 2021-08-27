@@ -87,8 +87,9 @@
    
     <table style="width:80%; clear: both;">
         <tr>
-            <th width="80%">Event Title</th>
-            <th width="80%">Key Word</th>
+            <th width="65%">Event Title</th>
+            <th width="20%">Key Word</th>
+            <th width="15%">Upload Date</th>
             <th></th>
         </tr>
         
@@ -99,6 +100,7 @@
                 echo "<tr>";
                 echo "<th>".$row['title']."</th>";
                 echo "<th>".$row['key_word']."</th>";
+                echo "<th>".$row['upload_date']."</th>";
                 echo '<th>
                     <form action = "delete_event.php" method="POST">
                     <input type = "hidden" name = "t" value = "'.$row['title'] .'">
@@ -111,7 +113,7 @@
     </table>
 
 
-    <br><br><br><br><br><br>
+    <br>
     
         
     <script src="js/script.js"></script>
