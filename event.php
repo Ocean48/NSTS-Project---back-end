@@ -99,15 +99,24 @@
         
 
         <?php
+            $a = [];
+            while ($row = $result->fetch_assoc()){
+                $a[$row['title']."+".$row['key_word']] = $row['upload_date'];
+            }
 
-            while ($row = $result->fetch_assoc()) {
+            arsort($a);
+
+
+            foreach($a as $k=>$v) {
+                $t = explode("+", $k);
+
                 echo "<tr>";
-                echo "<th>".$row['title']."</th>";
-                echo "<th>".$row['key_word']."</th>";
-                echo "<th>".$row['upload_date']."</th>";
+                echo "<th>".$t[0]."</th>";
+                echo "<th>".$t[1]."</th>";
+                echo "<th>".$v."</th>";
                 echo '<th>
                     <form action = "delete_event.php" method="POST">
-                    <input type = "hidden" name = "t" value = "'.$row['title'] .'">
+                    <input type = "hidden" name = "t" value = "'.$t[0] .'">
                     <input type = "submit" value = "Delete">
                     </form>
                 </th>';
