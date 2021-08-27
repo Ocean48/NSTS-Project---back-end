@@ -44,7 +44,8 @@
             margin: 10px 8px;
             cursor: pointer;
         }
-        input[type = "text"]{
+        input[type = "text"],[type = "email"]{
+            border-radius: 2px;
             border-color: black;
             border: 1px solid #000000;
             background-color: #e4eeff;
@@ -52,18 +53,7 @@
             height: 40px;
             font-size: 18px;
             text-decoration: none;
-            margin: 30px 56px;
-            cursor: pointer;
-        }
-        input[type = "email"]{
-            border-color: black;
-            border: 1px solid #000000;
-            background-color: #e4eeff;
-            color: black;
-            height: 40px;
-            font-size: 18px;
-            text-decoration: none;
-            margin: 30px 52px;
+            margin: 30px 20px;
             cursor: pointer;
         }
     </style>

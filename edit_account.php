@@ -33,7 +33,7 @@
         }
 
         form{
-            font-size: x-large;
+            font-size: larger;
             margin-top: 3%;
    			margin-left: 40%;
         }
@@ -52,6 +52,7 @@
         }
 
         input[type = "text"]{
+            border-radius: 2px;
         	background-color: #e4eeff;
             border: 1px solid #000000;
             color: white;
