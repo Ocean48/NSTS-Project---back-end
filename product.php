@@ -39,7 +39,7 @@
             border: none;
             color: white;
             width: 120px;
-            height: 50px;
+            height: 40px;
             text-decoration: none;
             margin: 10px 8px;
             cursor: pointer;
