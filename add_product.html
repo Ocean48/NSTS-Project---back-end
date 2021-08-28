@@ -25,21 +25,19 @@
             background-color: #e0f3ff;
         }
 
-        #nav .form1{
+        form{
+            display: table;
             font-size: larger;
-            float: left;
-            margin-top: 2%;
-            margin-left: 25%;
+            margin: 0 auto;
         }
-
-        #nav .form2{
-            font-size: larger;
-            float: right;
-            margin-top: 2%;
-            margin-right: 25%;
+        
+        table{
+            border: none;
+            margin: 0 auto;
         }
 
         input[type = "submit"]{
+            float: right;
             font-size: larger;
             background-color: #4CAF50;
             border: none;
@@ -84,35 +82,53 @@
         </div>
     </header>
     <br>
-    <div id="nav">
-        <form class="form1" action = "ap.php" method="POST">
-            Product Name: <br>
-            <input type="text" name="pn"><br>
-            Price: <br>
-            <input type="number" step="0.01" name="p"><br>        
-            Key Word: <br>
-            <input type="text" name="kw"><br>
-            Product image: <br>
-            <input type="text" name="i"><br>
-            image1 url: <br>
-            <input type="text" name="i1"><br>  
-        </form>
-    </div>
-    <div id="nav">
-        <form class="form2" action = "ap.php" method="POST">
-            image2 url: <br>
-            <input type="text" name="i2"><br>
-            image3 url: <br>
-            <input type="text" name="i3"><br>
-            image4 url: <br>
-            <input type="text" name="i4"><br>
-            image5 url: <br>
-            <input type="text" name="i5"><br>
-            image6 url: <br>
-            <input type="text" name="i6"><br>
-            <input type="submit" value = "Confirm">
-        </form>
-    </div>
+    <form action = "ap.php" method="POST">
+        <br>
+        <table>
+            <tr>
+                <td>Product Name: <br>
+                    <input class="form1" type="text" name="pn"><br>
+                </td>
+                <td>
+                    Price: <br>
+                    <input class="form1" type="number" step="0.01" name="p"><br> 
+                </td>
+                <td>
+                    Key Word: <br>
+                    <input class="form1" type="text" name="kw"><br>
+                </td>
+                <td>Product image: <br>
+                    <input class="form1" type="text" name="i"><br>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>image1 url: <br>
+                    <input class="form1" type="text" name="i1"><br>
+                </td>
+                <td>image2 url: <br>
+                    <input class="form2" type="text" name="i2"><br>
+                </td>
+                <td>image3 url: <br>
+                    <input class="form2" type="text" name="i3"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    image4 url: <br>
+                    <input class="form2" type="text" name="i4"><br>
+                </td>
+                <td>image5 url: <br>
+                    <input class="form2" type="text" name="i5"><br>
+                </td>
+                <td>image6 url: <br>
+                    <input class="form2" type="text" name="i6"><br>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value = "Confirm">
+    </form>
 
     
     <br><br><br><br><br><br><br><br>

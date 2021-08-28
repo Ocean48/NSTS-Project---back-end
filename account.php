@@ -85,8 +85,8 @@
    
     <table style="width:80%">
         <tr>
-            <th width="34%">User Email</th>
-            <th width="40%">Password</th>
+            <th width="40%">User Email</th>
+            <th width="35%">Password</th>
             <th></th>
         </tr>
         
@@ -97,11 +97,11 @@
                 echo "<th>".$row['email']."</th>";
                 echo "<th>".$row['password']."</th>";
                 echo '<th>
-                    <form action = "edit_account.php" method="POST">
+                    <form style="float:left;" action = "edit_account.php" method="POST">
                     <input type = "hidden" name = "e" value = "'.$row['email'] .'">
                     <input type = "submit" value = "Edit">
                     </form>
-                    <form action = "delete_account.php" method="POST">
+                    <form style="float:left; margin-left: 3%;" action = "delete_account.php" method="POST">
                     <input type = "hidden" name = "e" value = "'.$row['email'] .'">
                     <input type = "submit" value = "Delete">
                     </form>

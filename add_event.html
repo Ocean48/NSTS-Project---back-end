@@ -25,21 +25,19 @@
             background-color: #e0f3ff;
         }
 
-        #nav .form1{
+        form{
+            display: table;
             font-size: larger;
-            float: left;
-            margin-top: 2%;
-            margin-left: 25%;
+            margin: 0 auto;
         }
-
-        #nav .form2{
-            font-size: larger;
-            float: right;
-            margin-top: 2%;
-            margin-right: 25%;
+        
+        table{
+            border: none;
+            margin: 0 auto;
         }
 
         input[type = "submit"]{
+            float: right;
             font-size: larger;
             background-color: #4CAF50;
             border: none;
@@ -85,36 +83,58 @@
     </header>
     <br>
     
-    <div id="nav">
-        <form class="form1" action = "ae.php" method="POST">
-            Title: <br>
-            <input type="text" name="t"><br>
-            Short info: <br>
-            <textarea style="border: 1px solid black; background-color: #e4eeff; width: 260px; height: 100px;" type="text" name="si"></textarea><br><br>
-            Key Word: <br>
-            <input type="text" name="kw"><br>
-            Upload Date: <br>
-            <input type="text" name="ud"><br>
-            image1 url: <br>
-            <input type="text" name="i1"><br>
-        </form>
-    </div>
-
-    <div id="nav">
-        <form class="form2" action = "ae.php" method="POST">
-            image2 url: <br>
-            <input type="text" name="i2"><br>
-            image3 url: <br>
-            <input type="text" name="i3"><br>
-            image4 url: <br>
-            <input type="text" name="i4"><br>
-            image5 url: <br>
-            <input type="text" name="i5"><br>
-            image6 url: <br>
-            <input type="text" name="i6"><br>
-            <input type="submit" value = "Confirm">
-        </form>
-    </div>
+    <form action = "ae.php" method="POST">
+        <br>
+        <table>
+            <tr>
+                <td>Title: <br>
+                    <input type="text" name="t"><br>
+                </td>
+                
+                <td>
+                    Key Word: <br>
+                    <input type="text" name="kw"><br>
+                </td>
+                <td>Upload Date: <br>
+                    <input type="text" name="ud"><br>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    Short info: <br>
+                    <textarea style="border-radius: 2px; resize: none; font-size: large; padding-top: 5px; border: 1px solid black; background-color: #e4eeff; width: 500px; height: 100px;" type="text" name="si"></textarea><br><br>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>image1 url: <br>
+                    <input class="form1" type="text" name="i1"><br>
+                </td>
+                <td>image2 url: <br>
+                    <input class="form2" type="text" name="i2"><br>
+                </td>
+                <td>image3 url: <br>
+                    <input class="form2" type="text" name="i3"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    image4 url: <br>
+                    <input class="form2" type="text" name="i4"><br>
+                </td>
+                <td>image5 url: <br>
+                    <input class="form2" type="text" name="i5"><br>
+                </td>
+                <td>image6 url: <br>
+                    <input class="form2" type="text" name="i6"><br>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value = "Confirm">
+    </form>
 
     
     <br><br><br><br><br><br><br><br>
