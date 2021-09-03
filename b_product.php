@@ -2,7 +2,7 @@
     session_start();
     if (!isset($_SESSION['loggedin'])) {
         echo '<script>alert("You must sign in as an admin!")</script>';
-        header("refresh:0.1; url=sign_in.php");
+        header("refresh:0.1; url=b_sign_in.php");
         exit();
     }
 ?>
@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/b_style.css" type="text/css">
     <title>Index</title>
 
 
@@ -44,7 +44,6 @@
             margin: 10px 8px;
             cursor: pointer;
         }
-
     </style>
 </head>
 <body>
@@ -54,11 +53,11 @@
 
             <nav>
                 <ul>
-                    <li><a href="account.php">Account</a></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li><a href="product.php">Products</a></li>
-                    <li><a href="event.php">Event</a></li>
-                    <li><a href="sign_out.php">Sign Out</a>
+                    <li><a href="b_account.php">Account</a></li>
+                    <li><a href="b_cart.php">Cart</a></li>
+                    <li><a href="b_product.php">Products</a></li>
+                    <li><a href="b_event.php">Event</a></li>
+                    <li><a href="b_sign_out.php">Sign Out</a>
                     </li>
                 </ul>
             </nav>
@@ -66,22 +65,22 @@
     </header>
 
 
-    <h1 align = "center">Event Information</h1>
+    <h1 align = "center">Product Information</h1>
 
-    <form action="add_event.html">
-        <input style="float: right; margin-right: 20%; margin-bottom: 3%; width: 140px;" type="submit" value="Add Event">
+    <form action="b_add_product.html">
+        <input style="float: right; margin-right: 20%; margin-bottom: 3%; width: 140px;" type="submit" value="Add Product">
     </form>
 
 
     <?php
-        $conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
+        $conn = mysqli_connect("sql304.epizy.com", "epiz_29619319", "xAqCxk4Urp", "epiz_29619319_test");
                         
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
 
         }
 
-        $sql = "SELECT * FROM `event`";
+        $sql = "SELECT * FROM `products`";
 
         $result = $conn->query($sql);
     ?>
@@ -89,32 +88,22 @@
    
     <table style="width:80%; clear: both;">
         <tr>
-            <th width="65%">Event Title</th>
-            <th width="20%">Key Word</th>
-            <th width="15%">Upload Date</th>
+            <th width="50%">Product Name</th>
+            <th width="20%">Product price</th>
+            <th width="25%">Key Word</th>
             <th></th>
         </tr>
         
 
-        <?php
-            $a = [];
-            while ($row = $result->fetch_assoc()){
-                $a[$row['title']."+".$row['key_word']] = $row['upload_date'];
-            }
-
-            arsort($a);
-
-
-            foreach($a as $k=>$v) {
-                $t = explode("+", $k);
-
+        <?php   
+            while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<th>".$t[0]."</th>";
-                echo "<th>".$t[1]."</th>";
-                echo "<th>".$v."</th>";
+                echo "<th>".$row['name']."</th>";
+                echo "<th>$".$row['price']."</th>";
+                echo "<th>".$row['key_word']."</th>";
                 echo '<th>
-                    <form action = "delete_event.php" method="POST">
-                    <input type = "hidden" name = "t" value = "'.$t[0] .'">
+                    <form action = "b_delete_product.php" method="POST">
+                    <input type = "hidden" name = "name" value = "'.$row['name'] .'">
                     <input type = "submit" value = "Delete">
                     </form>
                 </th>';
@@ -124,7 +113,7 @@
     </table>
 
 
-    <br>
+    <br><br><br><br><br><br>
     
         
     <script src="js/script.js"></script>

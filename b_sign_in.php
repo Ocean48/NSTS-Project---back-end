@@ -2,7 +2,7 @@
 
     session_start();
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        header("refresh:0.1; url=account.php");
+        header("refresh:0.1; url=b_account.php");
         exit();
     }
     else {
@@ -11,7 +11,7 @@
             $name = $_POST["name"];
             $password = $_POST["password_s"];
             
-            $conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
+            $conn = mysqli_connect("sql304.epizy.com", "epiz_29619319", "xAqCxk4Urp", "epiz_29619319_test");
                 
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
@@ -26,7 +26,7 @@
                 if ($name == $row['user_name']) {
                     if ($password == $row['password']) {
                         $_SESSION['loggedin'] = true;
-                        header("refresh:0.1; url=account.php");
+                        header("refresh:0.1; url=b_account.php");
                     }
                     else {
                         $run = TRUE;
@@ -52,7 +52,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/b_style.css" type="text/css">
     <title>Sign in</title>
 
     <style>

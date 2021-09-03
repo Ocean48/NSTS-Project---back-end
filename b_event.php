@@ -2,18 +2,17 @@
     session_start();
     if (!isset($_SESSION['loggedin'])) {
         echo '<script>alert("You must sign in as an admin!")</script>';
-        header("refresh:0.1; url=sign_in.php");
+        header("refresh:0.1; url=b_sign_in.php");
         exit();
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/b_style.css" type="text/css">
     <title>Index</title>
 
 
@@ -38,13 +37,14 @@
             font-size: large;
             background-color: #4CAF50;
             border: none;
-            color: #ffffff;
-            height: 42px;
-            margin: 4px 2px;
+            color: white;
+            width: 120px;
+            height: 40px;
+            text-decoration: none;
+            margin: 10px 8px;
             cursor: pointer;
-            width : 140px;
-            text-align: center;
         }
+
     </style>
 </head>
 <body>
@@ -54,11 +54,11 @@
 
             <nav>
                 <ul>
-                    <li><a href="account.php">Account</a></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li><a href="product.php">Products</a></li>
-                    <li><a href="event.php">Event</a></li>
-                    <li><a href="sign_out.php">Sign Out</a>
+                    <li><a href="b_account.php">Account</a></li>
+                    <li><a href="b_cart.php">Cart</a></li>
+                    <li><a href="b_product.php">Products</a></li>
+                    <li><a href="b_event.php">Event</a></li>
+                    <li><a href="b_sign_out.php">Sign Out</a>
                     </li>
                 </ul>
             </nav>
@@ -66,43 +66,55 @@
     </header>
 
 
-    <h1 align = "center">User Information</h1>
+    <h1 align = "center">Event Information</h1>
+
+    <form action="b_add_event.html">
+        <input style="float: right; margin-right: 20%; margin-bottom: 3%; width: 140px;" type="submit" value="Add Event">
+    </form>
 
 
     <?php
-        $conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
+        $conn = mysqli_connect("sql304.epizy.com", "epiz_29619319", "xAqCxk4Urp", "epiz_29619319_test");
                         
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
 
         }
 
-        $sql = "SELECT * FROM `account`";
+        $sql = "SELECT * FROM `event`";
 
         $result = $conn->query($sql);
     ?>
 
    
-    <table style="width:80%">
+    <table style="width:80%; clear: both;">
         <tr>
-            <th width="40%">User Email</th>
-            <th width="35%">Password</th>
+            <th width="65%">Event Title</th>
+            <th width="20%">Key Word</th>
+            <th width="15%">Upload Date</th>
             <th></th>
         </tr>
         
 
         <?php
-            while ($row = $result->fetch_assoc()) {
+            $a = [];
+            while ($row = $result->fetch_assoc()){
+                $a[$row['title']."+".$row['key_word']] = $row['upload_date'];
+            }
+
+            arsort($a);
+
+
+            foreach($a as $k=>$v) {
+                $t = explode("+", $k);
+
                 echo "<tr>";
-                echo "<th>".$row['email']."</th>";
-                echo "<th>".$row['password']."</th>";
+                echo "<th>".$t[0]."</th>";
+                echo "<th>".$t[1]."</th>";
+                echo "<th>".$v."</th>";
                 echo '<th>
-                    <form style="float:left;" action = "edit_account.php" method="POST">
-                    <input type = "hidden" name = "e" value = "'.$row['email'] .'">
-                    <input type = "submit" value = "Edit">
-                    </form>
-                    <form style="float:left; margin-left: 3%;" action = "delete_account.php" method="POST">
-                    <input type = "hidden" name = "e" value = "'.$row['email'] .'">
+                    <form action = "b_delete_event.php" method="POST">
+                    <input type = "hidden" name = "t" value = "'.$t[0] .'">
                     <input type = "submit" value = "Delete">
                     </form>
                 </th>';
@@ -112,7 +124,7 @@
     </table>
 
 
-    <br><br><br><br><br><br>
+    <br>
     
         
     <script src="js/script.js"></script>

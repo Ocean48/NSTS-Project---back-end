@@ -2,7 +2,7 @@
     session_start();
     if (!isset($_SESSION['loggedin'])) {
         echo '<script>alert("You must sign in as an admin!")</script>';
-        header("refresh:0.1; url=sign_in.php");
+        header("refresh:0.1; url=b_sign_in.php");
         exit();
     }
 ?>
@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/b_style.css" type="text/css">
     <title>Index</title>
 
 
@@ -44,6 +44,18 @@
             margin: 10px 8px;
             cursor: pointer;
         }
+        input[type = "text"],[type = "email"]{
+            border-radius: 2px;
+            border-color: black;
+            border: 1px solid #000000;
+            background-color: #e4eeff;
+            color: black;
+            height: 40px;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 30px 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -53,11 +65,11 @@
 
             <nav>
                 <ul>
-                    <li><a href="account.php">Account</a></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li><a href="product.php">Products</a></li>
-                    <li><a href="event.php">Event</a></li>
-                    <li><a href="sign_out.php">Sign Out</a>
+                    <li><a href="b_account.php">Account</a></li>
+                    <li><a href="b_cart.php">Cart</a></li>
+                    <li><a href="b_product.php">Products</a></li>
+                    <li><a href="b_event.php">Event</a></li>
+                    <li><a href="b_sign_out.php">Sign Out</a>
                     </li>
                 </ul>
             </nav>
@@ -65,45 +77,49 @@
     </header>
 
 
-    <h1 align = "center">Product Information</h1>
+    <h1 align = "center">Order Information</h1>
 
-    <form action="add_product.html">
-        <input style="float: right; margin-right: 20%; margin-bottom: 3%; width: 140px;" type="submit" value="Add Product">
+    <form action = "b_add_cart.php" method="POST" style="margin-left: 10%;">
+        <label>E-mail: </label>
+        <input type = "email" name = "email">
+        <label>Product: </label>
+        <input type = "text" name = "product">
+        <input type = "submit" value = "Add Order" style="margin-left: 5.5%;">
     </form>
 
-
-    <?php
-        $conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
+   <?php
+        $conn = mysqli_connect("sql304.epizy.com", "epiz_29619319", "xAqCxk4Urp", "epiz_29619319_test");
                         
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
 
         }
 
-        $sql = "SELECT * FROM `products`";
+        $sql = "SELECT * FROM `cart`";
 
         $result = $conn->query($sql);
     ?>
 
-   
-    <table style="width:80%; clear: both;">
+
+    <table style="width:80%">
         <tr>
-            <th width="50%">Product Name</th>
-            <th width="20%">Product price</th>
-            <th width="25%">Key Word</th>
+            <th width="34%">User Email</th>
+            <th width="40%">Product</th>
+            <th width="40%">price</th>
             <th></th>
         </tr>
         
 
-        <?php   
+        <?php
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<th>".$row['name']."</th>";
+                echo "<th>".$row['email']."</th>";
+                echo "<th>".$row['product']."</th>";
                 echo "<th>$".$row['price']."</th>";
-                echo "<th>".$row['key_word']."</th>";
                 echo '<th>
-                    <form action = "delete_product.php" method="POST">
-                    <input type = "hidden" name = "name" value = "'.$row['name'] .'">
+                    <form action = "b_delete_cart.php" method="POST">
+                    <input type = "hidden" name = "e" value = "'.$row['email'] .'">
+                    <input type = "hidden" name = "p" value = "'.$row['product'] .'">
                     <input type = "submit" value = "Delete">
                     </form>
                 </th>';

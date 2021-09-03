@@ -2,7 +2,7 @@
     session_start();
     if (!isset($_SESSION['loggedin'])) {
         echo '<script>alert("You must sign in as an admin!")</script>';
-        header("refresh:0.1; url=sign_in.php");
+        header("refresh:0.1; url=b_sign_in.php");
         exit();
     }
 ?>
@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/b_style.css" type="text/css">
     <title>Index</title>
 
 
@@ -70,11 +70,11 @@
 
             <nav>
                 <ul>
-                    <li><a href="account.php">Account</a></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li><a href="product.php">Products</a></li>
-                    <li><a href="event.php">Event</a></li>
-                    <li><a href="sign_out.php">Sign Out</a>
+                    <li><a href="b_account.php">Account</a></li>
+                    <li><a href="b_cart.php">Cart</a></li>
+                    <li><a href="b_product.php">Products</a></li>
+                    <li><a href="b_event.php">Event</a></li>
+                    <li><a href="b_sign_out.php">Sign Out</a>
                     </li>
                 </ul>
             </nav>
@@ -86,7 +86,7 @@
     	$e = $_POST['e'];
     
 
-	    echo '<form action = "ea.php" method="POST">
+	    echo '<form action = "b_ea.php" method="POST">
 	    	<input type="hidden" name="old_email" value = "'.$e.'">
 	    	New Name: <br>
 	    	<input type="text" name="new_email"><br><br><br>

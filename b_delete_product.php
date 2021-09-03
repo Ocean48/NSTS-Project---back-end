@@ -2,23 +2,23 @@
     session_start();
     if (!isset($_SESSION['loggedin'])) {
         echo '<script>alert("You must sign in as an admin!")</script>';
-        header("refresh:0.1; url=sign_in.php");
+        header("refresh:0.1; url=b_sign_in.php");
         exit();
     }
 ?>
 <?php
 	
-	$e = $_POST['e'];
+	$n = $_POST['name'];
 
-	$conn = mysqli_connect("localhost", "root", "123456", "nozuonodie");
+	$conn = mysqli_connect("sql304.epizy.com", "epiz_29619319", "xAqCxk4Urp", "epiz_29619319_test");
                         
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
 
     }
 
-    $sql = "DELETE FROM `account` WHERE email = '$e'";
+    $sql = "DELETE FROM `products` WHERE name = '$n'";
 
     $conn->query($sql);
-    header('Location: http://localhost/nozuonodie_back/account.php');
+    header("refresh:0.1; url=b_product.php");
 ?>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/b_style.css" type="text/css">
     <title>Index</title>
 
 
@@ -51,7 +51,7 @@
             margin-bottom: 20%;
         }
 
-        input[type = "text"],[type = "number"]{
+        input[type = "text"]{
             border-radius: 2px;
             background-color: #e4eeff;
             border: 1px solid #000000;
@@ -71,34 +71,40 @@
 
             <nav>
                 <ul>
-                    <li><a href="account.php">Account</a></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li><a href="product.php">Products</a></li>
-                    <li><a href="event.php">Event</a></li>
-                    <li><a href="sign_out.php">Sign Out</a>
+                    <li><a href="b_account.php">Account</a></li>
+                    <li><a href="b_cart.php">Cart</a></li>
+                    <li><a href="b_product.php">Products</a></li>
+                    <li><a href="b_event.php">Event</a></li>
+                    <li><a href="b_sign_out.php">Sign Out</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
     <br>
-    <form action = "ap.php" method="POST">
+    
+    <form action = "b_ae.php" method="POST">
         <br>
         <table>
             <tr>
-                <td>Product Name: <br>
-                    <input class="form1" type="text" name="pn"><br>
+                <td>Title: <br>
+                    <input type="text" name="t"><br>
                 </td>
-                <td>
-                    Price: <br>
-                    <input class="form1" type="number" step="0.01" name="p"><br> 
-                </td>
+                
                 <td>
                     Key Word: <br>
-                    <input class="form1" type="text" name="kw"><br>
+                    <input type="text" name="kw"><br>
                 </td>
-                <td>Product image: <br>
-                    <input class="form1" type="text" name="i"><br>
+                <td>Upload Date: <br>
+                    <input type="text" name="ud"><br>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    Short info: <br>
+                    <textarea style="border-radius: 2px; resize: none; font-size: large; padding-top: 5px; border: 1px solid black; background-color: #e4eeff; width: 500px; height: 100px;" type="text" name="si"></textarea><br><br>
                 </td>
             </tr>
         </table>
@@ -136,7 +142,7 @@
         
     <script src="js/script.js"></script>
     
-    <br><br><br>
+    <br>
 
     <footer>
         <img src="images/logo.png" alt="logo">
